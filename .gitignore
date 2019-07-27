@@ -7,7 +7,7 @@
 # Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
 
 # User-defined
-chromedriver
+chromedriver.exe
 __pycache__
 
 # User-specific stuff
