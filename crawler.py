@@ -36,9 +36,9 @@ class Crawler:
         # ============================================= #
 
         # if you don't want headless driver, remove chrome_option argument
-        browser = webdriver.Chrome('chromedriver.exe', chrome_options=chrome_options)
+        browser = webdriver.Chrome('./chromedriver', chrome_options=chrome_options)
         browser.get(url)
-
+        print(url)
         # scroll twice by 10000px
         for _ in range(1):
             browser.execute_script('window.scrollBy(0, 10000)')
@@ -49,6 +49,7 @@ class Crawler:
     def downloadImage(self, browser):
         elements = browser.find_elements_by_xpath('//div[contains(@class,"rg_meta")]')
         element_size = len(elements)  # used for progress status
+
         for idx, element in enumerate(elements):
 
             img = json.loads(element.get_attribute('innerHTML'))["ou"]
