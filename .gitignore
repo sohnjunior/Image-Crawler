@@ -2,3 +2,4 @@ myvenv/
 .DS_Store
 .idea/
 chromedriver
+__pycache__/
