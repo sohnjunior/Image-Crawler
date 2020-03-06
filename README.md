@@ -19,6 +19,8 @@ Required web-driver
 Google Image Search requires the chromedriver that corresponds to the version of Chrome you are using. <br>
 After installing chromedriver, place it in the same directory as crawler.py.
 
+_Dev environment - Chrome : 80.0.3987_
+
 Usage
 ------
 Execute program
@@ -29,4 +31,4 @@ keyword... : <keyword for image>
 ```
 
 Enter the desired keyword in the terminal. <br>
-Then, the retrieved image is then saved as a file :simple_smile:
+Then, the retrieved image is then saved as a file
