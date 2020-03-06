@@ -14,7 +14,7 @@ Required web-driver
 
 * [How to check your Chrome version](https://support.google.com/chrome/answer/95414?co=GENIE.Platform%3DDesktop&hl=ko)
 
-* [Install chromedriver](https://sites.google.com/a/chromium.org/chromedriver/home)
+* [Download chromedriver](https://sites.google.com/a/chromium.org/chromedriver/downloads)
 
 Google Image Search requires the chromedriver that corresponds to the version of Chrome you are using. <br>
 After installing chromedriver, place it in the same directory as crawler.py.
