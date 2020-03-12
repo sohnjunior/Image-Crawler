@@ -26,9 +26,9 @@ Usage
 Execute program
 
 ```
-$ python crawler.py
-keyword... : <keyword for image>
+$ python crawler.py --keyword <keyword> --count <image count>
 ```
+> The number of images can be up to 400 in 100 units.
 
 Enter the desired keyword in the terminal. <br>
 Then, the retrieved image is then saved as a file

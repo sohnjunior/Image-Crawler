@@ -7,6 +7,7 @@ from tqdm import tqdm
 
 import re
 import base64
+import argparse
 from io import BytesIO
 from PIL import Image
 
@@ -24,9 +25,10 @@ class Crawler:
     """
     Google Web Image Crawler
     """
-    def __init__(self):
-        self.keyword = str(input('keyword... : '))  # image keyword for searching
-        self.dirPath = ""                           # image stored directory
+    def __init__(self, keyword, count):
+        self.keyword = str(keyword)  # image keyword for searching
+        self.count = count  # image count
+        self.dirPath = ""  # image stored directory
 
     def create_new_directory(self):
         """
@@ -66,8 +68,11 @@ class Crawler:
         browser = webdriver.Chrome(os.path.join(self.cwd,'chromedriver'), chrome_options=chrome_options)
         browser.get(url)
         print(url)
-        # scroll twice by 10000px
-        for _ in range(1):
+
+        # scroll by 10000px
+        pk = self.count // 100 - 1
+        scroll = 1 if pk == 0 else 250 * pk
+        for _ in range(scroll):
             browser.execute_script('window.scrollBy(0, 10000)')
 
         return browser
@@ -101,7 +106,7 @@ class Crawler:
     def run(self):
         """
         main routines
-        :return:
+        :return: None
         """
         self.create_new_directory()           # 1. create the directory
         url = self.create_url()              # 2. create the path
@@ -110,5 +115,11 @@ class Crawler:
 
 
 if __name__ == '__main__':
-    newCrawler = Crawler()  # create new crawler
+    parser = argparse.ArgumentParser(description='구글 이미지 크롤러 v2')
+    parser.add_argument('--keyword', required=True, type=str, help='검색할 이미지 키워드')
+    parser.add_argument('--count', required=False, type=int, default=100, help='이미지 개수 100 단위로')
+
+    args = parser.parse_args()
+
+    newCrawler = Crawler(args.keyword, args.count)  # create new crawler
     newCrawler.run()
